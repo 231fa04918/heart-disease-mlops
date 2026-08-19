@@ -1,0 +1,17 @@
+stages:
+  train:
+    cmd: python src/train.py
+    deps:
+    - data/heart.csv
+    - src/train.py
+    params:
+    - model.max_depth
+    - model.min_samples_split
+    - model.n_estimators
+    - train.random_state
+    - train.test_size
+    outs:
+    - models/model.pkl
+    metrics:
+    - metrics.json:
+        cache: false
