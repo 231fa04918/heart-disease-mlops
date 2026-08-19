@@ -1,0 +1,29 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/heart.csv
+      hash: md5
+      md5: 373020f8bfc5501124b47262a2a43690
+      size: 87255
+    - path: src/train.py
+      hash: md5
+      md5: 7a2c2fd3cdf7dec1a70d3606486bf0cf
+      size: 1309
+    params:
+      params.yaml:
+        model.max_depth: 15
+        model.min_samples_split: 2
+        model.n_estimators: 200
+        train.random_state: 42
+        train.test_size: 0.2
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: 727bac460961b79f1022a58f432a350b
+      size: 108
+    - path: models/model.pkl
+      hash: md5
+      md5: b1489864f1da773f07e85b56a49c1b38
+      size: 1483338
